@@ -1,10 +1,11 @@
-const {User} = require("../models")
+const {User, Thought} = require("../models")
 
 const getAllUsers = (req, res) => {
     User.find()
     .populate("friends")
     .then(results => {
      res.json(results)
+     
     })
  }
 

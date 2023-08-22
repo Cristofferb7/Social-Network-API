@@ -40,9 +40,10 @@ const userSchema = new Schema(
 
 
 
-userSchema.virtual("friendCount").get(function () {
-  return this.friends.length;
-});
+userSchema.virtual("friendCount") 
+.get(function () { //virtuals are not stored in the database, but they do show up when you query a document with Mongoose.
+  return this.friends.length; // get total count of friends on retrieval
+}); 
 // create the User model using the UserSchema
 const User = model('User', userSchema);
 // export the User model
